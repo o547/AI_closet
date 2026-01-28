@@ -3,7 +3,10 @@ from django.views import View
 from .forms import GarmentForm,CoordinateForm
 from .models import garment,coordinate
 from google import genai
+
+#----------keyを自分のapiキーに変更----------
 cliant=genai.Client(api_key="key")
+#------------------------------------------
 
 # Create your views here.
 
