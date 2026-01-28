@@ -1,0 +1,60 @@
+{% extends "closet/base.html" %}
+{% block body %}
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">トップス</th>
+      <th scope="col">ボトムス</th>
+      <th scope="col">アウター</th>
+      <th scope="col">その他</th>
+      <th scope="col">アクション</th>
+
+    </tr>
+  </thead>
+  <tbody>
+{% for coordinate in coordinates %}
+<tr>
+  {% if coordinate.tops != "なし" %}
+  <td>{{coordinate.tops}}</td>
+  {% endif %}
+
+  {% if coordinate.bottoms != "なし" %}
+  <td>{{coordinate.bottoms}}</td>
+  {% endif %}
+
+  {% if coordinate.outer == "なし" %}
+  <td>なし</td>
+  {% else %}
+  <td>{{coordinate.outer}}</td>
+  {% endif %}
+
+  <td>
+  {% if coordinate.inner != "なし" %}
+  {{coordinate.inner}},
+  {% endif %}
+
+  {% if coordinate.accessory != "なし" %}
+  {{coordinate.accessory}},
+  {% endif %}
+
+  {% if coordinate.additional1 != "なし" %}
+  {{coordinate.additional1}},
+  {% endif %}
+
+  {% if coordinate.additional2 != "なし" %}
+  {{coordinate.additional2}}
+  {% endif %}
+  </td>
+  <td>
+  <a href="/closet/coordinate/evaluation/{{coordinate.id}}"><button type="button" class="btn btn-success btn-sm">AI評価</button></a>
+  <a href="/closet/coordinate/delete/{{coordinate.id}}"><button type="button" class="btn btn-danger btn-sm">削除</button></a>
+  </td>
+</tr>
+  {% endfor %}
+  </tbody>
+  </table>
+<a href="/closet"><button type="button" class="btn btn-secondary">戻る</button></a>
+
+{% endblock %}

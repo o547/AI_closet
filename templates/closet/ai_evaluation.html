@@ -1,0 +1,8 @@
+{% extends "closet/base.html" %}
+{% block body %}
+<h3>コーディネート</h3>
+<p>{{evaluated_coordinate_coordinate}}</p>
+<h3>AIの評価</h3>
+<p>{{response}}</p>
+<a href="/closet/coordinate/list"><button type="button" class="btn btn-secondary">戻る</button></a>
+{% endblock %}

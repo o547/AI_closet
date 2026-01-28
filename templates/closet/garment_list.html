@@ -1,0 +1,30 @@
+{% extends "closet/base.html" %}
+{% block body %}
+
+<a href="/closet/garment/ai_coordinate"><button type="button" class="btn btn-success btn-sm">AIにコーディネートを頼む</button></a>
+
+{% if response %}
+<h5 style="margin-top: 10px; margin-bottom: 0px;">回答：{{ response }}</h5>
+{% endif %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">名前</th>
+      <th scope="col">色</th>
+      <th scope="col">分類</th>
+      <th scope="col">削除</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for garment in garments %}
+    <tr>
+      <td>{{garment.name}}</td>
+      <td>{{garment.color}}</td>
+      <td>{{garment.type}}</td>
+      <td><a href="/closet/garment/delete/{{garment.id}}"><button type="button" class="btn btn-danger btn-sm">削除</button></a></td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

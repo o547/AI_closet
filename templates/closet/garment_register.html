@@ -1,0 +1,32 @@
+{% extends "closet/base.html" %}
+{% block body %}
+    <form method="POST",enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            <label for="id_name">名前：</label>
+            <input type="text" name="name" maxlength="100" required="" id="id_name" class="form-control">
+        </p>
+
+        <p>
+            <label for="id_color">色　：</label>
+            <input type="text" name="color" maxlength="100" required="" id="id_color" class="form-control">
+        </p>
+
+        <p>
+            <label for="id_type">分類：</label>
+            <select name="type" id="id_type" class="form-select">
+            <option value="未分類">未分類</option>
+            <option value="トップス">トップス</option>
+            <option value="ボトムス">ボトムス</option>
+            <option value="アウター">アウター</option>
+            <option value="インナー">インナー</option>
+            <option value="アクセサリー">アクセサリー</option>
+            <option value="その他">その他</option>
+            </select>
+        </p>
+
+        <button type="submit" class="btn btn-primary">登録</button>
+        <a href="/closet"><button type="button" class="btn btn-secondary">戻る</button></a>
+    </form>
+
+{% endblock %}

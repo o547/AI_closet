@@ -1,0 +1,107 @@
+{% extends "closet/base.html" %}
+{% block body %}
+    <form method="POST",enctype="multipart/form-data">
+    {% csrf_token %}
+    
+    <form method="POST",enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <p style="margin: 1px 0px 1px 0px;">
+        <label for="id_temperature">最適気温：</label>
+        <select name="temperature" class="form-select" id="id_temperature">
+            <option value="高">高</option>
+            <option value="中">中</option>
+            <option value="低">低</option>
+        </select>
+        </p>
+
+        <p style="margin: 1px 0px 1px 0px;">
+        <label for="id_tops">トップス：</label>
+        <select name="tops" class="form-select" id="id_tops">
+            <option value="なし">なし</option>
+            {% for garment in garments %}
+                {% if garment.type == "トップス" %}
+                <option value="{{garment.name}}({{garment.color}})">{{garment.name}}({{garment.color}})</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        </p>
+
+
+        <p style="margin: 1px 0px 1px 0px;">
+        <label for="id_bottoms">ボトムス：</label>
+        <select name="bottoms" class="form-select" id="id_bottoms">
+            <option value="なし">なし</option>
+            {% for garment in garments %}
+                {% if garment.type == "ボトムス" %}
+                <option value="{{garment.name}}({{garment.color}})">{{garment.name}}({{garment.color}})</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        </p>
+
+
+        <p style="margin: 1px 0px 1px 0px;">
+        <label for="id_outer">アウター</label>
+        <select name="outer" class="form-select" id="id_outer">
+            <option value="なし">なし</option>
+            {% for garment in garments %}
+                {% if garment.type == "アウター" or garment.type == "トップス" %}
+                <option value="{{garment.name}}({{garment.color}})">{{garment.name}}({{garment.color}})</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        </p>
+
+
+        <p style="margin: 1px 0px 1px 0px;">
+        <label for="id_inner">インナー</label>
+        <select name="inner" class="form-select" id="id_inner">
+            <option value="なし">なし</option>
+            {% for garment in garments %}
+                {% if garment.type == "インナー" %}
+                <option value="{{garment.name}}({{garment.color}})">{{garment.name}}({{garment.color}})</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        </p>
+
+
+        <p style="margin: 1px 0px 1px 0px;">
+        <label for="id_accessory">アクセサリー</label>
+        <select name="accessory" class="form-select" id="id_accessory">
+            <option value="なし">なし</option>
+            {% for garment in garments %}
+                {% if garment.type == "アクセサリー" %}
+                <option value="{{garment.name}}({{garment.color}})">{{garment.name}}({{garment.color}})</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        </p>
+
+
+        <p style="margin: 1px 0px 1px 0px;">
+        <label for="id_additional1">追加１：</label>
+        <select name="additional1" class="form-select" id="id_additional1">
+            <option value="なし">なし</option>
+            {% for garment in garments %}
+                <option value="{{garment.name}}({{garment.color}})">{{garment.name}}({{garment.color}})</option>
+            {% endfor %}
+        </select>
+        </p>
+
+
+        <p style="margin: 1px 0px 1px 0px;">
+        <label for="id_additional2">追加２</label>
+        <select name="additional2" class="form-select" id="id_additional2">
+            <option value="なし">なし</option>
+            {% for garment in garments %}
+                <option value="{{garment.name}}({{garment.color}})">{{garment.name}}({{garment.color}})</option>
+            {% endfor %}
+        </select>
+        </p>
+
+
+        <button type="submit" class="btn btn-primary" style="margin-top: 2px;">登録</button>
+        <a href="/closet/coordinate/list"><button type="button" class="btn btn-secondary" style="margin-top: 2px;">戻る</button></a>    </form>
+{% endblock %}
