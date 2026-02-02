@@ -1,6 +1,6 @@
 <h1>使い方</h1>
 <h2>１．インストール</h2>
-<p>python3.9以上をインストール</p>
+<p>python(3.9以上)をインストール</p>
 <p>pip install django</p>
 <p>pip install google-genai</p>
 <h2>２．geminiAPIの適用</h2>
