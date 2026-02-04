@@ -1,6 +1,6 @@
 <h1>使い方</h1>
 <h2>１．インストール</h2>
-<p>python(3.9以上)をインストール</p>
+<p>pythonをインストール</p>
 <p>pip install django</p>
 <p>pip install opencv-python</p>
 <p>pip install numpy</p>
