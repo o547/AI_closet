@@ -7,4 +7,5 @@
 <p>closet/views.py 8行目のにある"key"を<a href="https://ai.google.dev/gemini-api/docs/api-key?hl=ja">自分のAPIキー</a>に変える</p>
 <h2>３．起動</h2>
 <p>run.cmdで起動</p>
+<p><a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>を開く</p>
 <p>サンプルの服は不要であれば消して下さい</p>
